@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ConnectedRouteImport } from './routes/connected'
+import { Route as PlatformRouteImport } from './routes/platform'
+import { Route as TechnologyRouteImport } from './routes/technology'
+import { Route as CrewIndexRouteImport } from './routes/crew.index'
+import { Route as CrewSlugRouteImport } from './routes/crew.$slug'
+import { Route as ModulesIndexRouteImport } from './routes/modules.index'
+import { Route as ModulesSlugRouteImport } from './routes/modules.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConnectedRoute = ConnectedRouteImport.update({
+  id: '/connected',
+  path: '/connected',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlatformRoute = PlatformRouteImport.update({
+  id: '/platform',
+  path: '/platform',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TechnologyRoute = TechnologyRouteImport.update({
+  id: '/technology',
+  path: '/technology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CrewIndexRoute = CrewIndexRouteImport.update({
+  id: '/crew/',
+  path: '/crew/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CrewSlugRoute = CrewSlugRouteImport.update({
+  id: '/crew/$slug',
+  path: '/crew/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ModulesIndexRoute = ModulesIndexRouteImport.update({
+  id: '/modules/',
+  path: '/modules/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ModulesSlugRoute = ModulesSlugRouteImport.update({
+  id: '/modules/$slug',
+  path: '/modules/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/connected': typeof ConnectedRoute
+  '/platform': typeof PlatformRoute
+  '/technology': typeof TechnologyRoute
+  '/crew/$slug': typeof CrewSlugRoute
+  '/modules/$slug': typeof ModulesSlugRoute
+  '/crew/': typeof CrewIndexRoute
+  '/modules/': typeof ModulesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/connected': typeof ConnectedRoute
+  '/platform': typeof PlatformRoute
+  '/technology': typeof TechnologyRoute
+  '/crew/$slug': typeof CrewSlugRoute
+  '/modules/$slug': typeof ModulesSlugRoute
+  '/crew': typeof CrewIndexRoute
+  '/modules': typeof ModulesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/connected': typeof ConnectedRoute
+  '/platform': typeof PlatformRoute
+  '/technology': typeof TechnologyRoute
+  '/crew/$slug': typeof CrewSlugRoute
+  '/modules/$slug': typeof ModulesSlugRoute
+  '/crew/': typeof CrewIndexRoute
+  '/modules/': typeof ModulesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/connected'
+    | '/platform'
+    | '/technology'
+    | '/crew/$slug'
+    | '/modules/$slug'
+    | '/crew/'
+    | '/modules/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/connected'
+    | '/platform'
+    | '/technology'
+    | '/crew/$slug'
+    | '/modules/$slug'
+    | '/crew'
+    | '/modules'
+  id:
+    | '__root__'
+    | '/'
+    | '/connected'
+    | '/platform'
+    | '/technology'
+    | '/crew/$slug'
+    | '/modules/$slug'
+    | '/crew/'
+    | '/modules/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ConnectedRoute: typeof ConnectedRoute
+  PlatformRoute: typeof PlatformRoute
+  TechnologyRoute: typeof TechnologyRoute
+  CrewSlugRoute: typeof CrewSlugRoute
+  ModulesSlugRoute: typeof ModulesSlugRoute
+  CrewIndexRoute: typeof CrewIndexRoute
+  ModulesIndexRoute: typeof ModulesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/connected': {
+      id: '/connected'
+      path: '/connected'
+      fullPath: '/connected'
+      preLoaderRoute: typeof ConnectedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/platform': {
+      id: '/platform'
+      path: '/platform'
+      fullPath: '/platform'
+      preLoaderRoute: typeof PlatformRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/technology': {
+      id: '/technology'
+      path: '/technology'
+      fullPath: '/technology'
+      preLoaderRoute: typeof TechnologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/crew/': {
+      id: '/crew/'
+      path: '/crew'
+      fullPath: '/crew/'
+      preLoaderRoute: typeof CrewIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/crew/$slug': {
+      id: '/crew/$slug'
+      path: '/crew/$slug'
+      fullPath: '/crew/$slug'
+      preLoaderRoute: typeof CrewSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/modules/': {
+      id: '/modules/'
+      path: '/modules'
+      fullPath: '/modules/'
+      preLoaderRoute: typeof ModulesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/modules/$slug': {
+      id: '/modules/$slug'
+      path: '/modules/$slug'
+      fullPath: '/modules/$slug'
+      preLoaderRoute: typeof ModulesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ConnectedRoute: ConnectedRoute,
+  PlatformRoute: PlatformRoute,
+  TechnologyRoute: TechnologyRoute,
+  CrewSlugRoute: CrewSlugRoute,
+  ModulesSlugRoute: ModulesSlugRoute,
+  CrewIndexRoute: CrewIndexRoute,
+  ModulesIndexRoute: ModulesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
