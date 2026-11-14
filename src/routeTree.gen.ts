@@ -10,8 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as ConnectedRouteImport } from './routes/connected'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as PlatformRouteImport } from './routes/platform'
+import { Route as SecurityRouteImport } from './routes/security'
 import { Route as TechnologyRouteImport } from './routes/technology'
 import { Route as CrewIndexRouteImport } from './routes/crew.index'
 import { Route as CrewSlugRouteImport } from './routes/crew.$slug'
@@ -23,14 +28,39 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ConnectedRoute = ConnectedRouteImport.update({
   id: '/connected',
   path: '/connected',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesRoute = IndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PlatformRoute = PlatformRouteImport.update({
   id: '/platform',
   path: '/platform',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SecurityRoute = SecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TechnologyRoute = TechnologyRouteImport.update({
@@ -61,8 +91,13 @@ const ModulesSlugRoute = ModulesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/connected': typeof ConnectedRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/industries': typeof IndustriesRoute
   '/platform': typeof PlatformRoute
+  '/security': typeof SecurityRoute
   '/technology': typeof TechnologyRoute
   '/crew/$slug': typeof CrewSlugRoute
   '/modules/$slug': typeof ModulesSlugRoute
@@ -71,8 +106,13 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/connected': typeof ConnectedRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/industries': typeof IndustriesRoute
   '/platform': typeof PlatformRoute
+  '/security': typeof SecurityRoute
   '/technology': typeof TechnologyRoute
   '/crew/$slug': typeof CrewSlugRoute
   '/modules/$slug': typeof ModulesSlugRoute
@@ -82,8 +122,13 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/connected': typeof ConnectedRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/industries': typeof IndustriesRoute
   '/platform': typeof PlatformRoute
+  '/security': typeof SecurityRoute
   '/technology': typeof TechnologyRoute
   '/crew/$slug': typeof CrewSlugRoute
   '/modules/$slug': typeof ModulesSlugRoute
@@ -94,8 +139,13 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/connected'
+    | '/contact'
+    | '/faq'
+    | '/industries'
     | '/platform'
+    | '/security'
     | '/technology'
     | '/crew/$slug'
     | '/modules/$slug'
@@ -104,8 +154,13 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/connected'
+    | '/contact'
+    | '/faq'
+    | '/industries'
     | '/platform'
+    | '/security'
     | '/technology'
     | '/crew/$slug'
     | '/modules/$slug'
@@ -114,8 +169,13 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/connected'
+    | '/contact'
+    | '/faq'
+    | '/industries'
     | '/platform'
+    | '/security'
     | '/technology'
     | '/crew/$slug'
     | '/modules/$slug'
@@ -125,8 +185,13 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   ConnectedRoute: typeof ConnectedRoute
+  ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
+  IndustriesRoute: typeof IndustriesRoute
   PlatformRoute: typeof PlatformRoute
+  SecurityRoute: typeof SecurityRoute
   TechnologyRoute: typeof TechnologyRoute
   CrewSlugRoute: typeof CrewSlugRoute
   ModulesSlugRoute: typeof ModulesSlugRoute
@@ -143,6 +208,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/connected': {
       id: '/connected'
       path: '/connected'
@@ -150,11 +222,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConnectedRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries': {
+      id: '/industries'
+      path: '/industries'
+      fullPath: '/industries'
+      preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/platform': {
       id: '/platform'
       path: '/platform'
       fullPath: '/platform'
       preLoaderRoute: typeof PlatformRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/security': {
+      id: '/security'
+      path: '/security'
+      fullPath: '/security'
+      preLoaderRoute: typeof SecurityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/technology': {
@@ -197,8 +297,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   ConnectedRoute: ConnectedRoute,
+  ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
+  IndustriesRoute: IndustriesRoute,
   PlatformRoute: PlatformRoute,
+  SecurityRoute: SecurityRoute,
   TechnologyRoute: TechnologyRoute,
   CrewSlugRoute: CrewSlugRoute,
   ModulesSlugRoute: ModulesSlugRoute,

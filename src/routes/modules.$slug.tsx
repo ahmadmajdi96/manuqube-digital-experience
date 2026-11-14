@@ -31,7 +31,7 @@ function ModulePage() {
   const { slug } = Route.useLoaderData();
   const m = getModule(slug)!;
   const idx = modules.indexOf(m);
-  const next = modules[(idx + 1) % modules.length];
+  const next = modules[(idx + 1) % modules.length]!;
   return (
     <div style={{ ["--mod" as string]: m.color }}>
       <section className="relative overflow-hidden pt-28">

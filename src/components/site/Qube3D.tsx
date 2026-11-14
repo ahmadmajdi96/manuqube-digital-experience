@@ -15,7 +15,7 @@ function Cubes() {
       for (let y = -1; y <= 1; y++)
         for (let z = -1; z <= 1; z++) {
           const front = z === 1;
-          out.push({ p: new THREE.Vector3(x, y, z), color: front ? MOD_COLORS[k++ % 9] : "#22272A", accent: front });
+          out.push({ p: new THREE.Vector3(x, y, z), color: front ? MOD_COLORS[k++ % 9]! : "#22272A", accent: front });
         }
     return out;
   }, []);
@@ -30,7 +30,7 @@ function Cubes() {
     const spread = 1.08 + (Math.sin(t * 0.8) * 0.5 + 0.5) * 0.28;
     refs.current.forEach((m, i) => {
       if (!m) return;
-      const c = cells[i].p;
+      const c = cells[i]!.p;
       m.position.lerp(new THREE.Vector3(c.x * spread, c.y * spread, c.z * spread), 0.1);
     });
   });

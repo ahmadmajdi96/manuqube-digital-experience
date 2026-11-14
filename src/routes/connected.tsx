@@ -18,7 +18,7 @@ export const Route = createFileRoute("/connected")({
   component: Connected,
 });
 
-const flow1 = [
+const flow1: [string, string][] = [
   ["oms", "A customer order arrives in OMS from ERP or a sales channel; OMS checks Available-to-Promise."],
   ["aps", "APS receives the demand and builds a finite-capacity schedule, checking materials in WMS and holds in QMS."],
   ["ams", "The planner approves; the schedule is released to MES. MES runs it with qualified operators per shift, with access set in AMS."],
@@ -31,7 +31,7 @@ const chains: { title: string; steps: [string, string][] }[] = [
   { title: "Flow 3 — Quality event to containment", steps: [["qms", "Raises a hold"], ["aps", "Marks the schedule infeasible"], ["mes", "Stops the affected units"], ["wms", "Blocks the stock"], ["oms", "Flags the affected customer orders"], ["mes", "Genealogy produces the recall scope"], ["qms", "CAPA closes the loop"]] },
   { title: "Flow 4 — Recipe from lab to line", steps: [["rms", "Trial → validation → review queue → signed approval"], ["mes", "Published to MES → batch run"], ["qms", "Results return as QA insights to RMS"]] },
 ];
-const ownership = [
+const ownership: [string, string, string][] = [
   ["Customer orders", "OMS", "APS, WMS, MES"], ["Items, BOMs, routings", "PLMS", "EMS, MES, APS, RMS"], ["Recipes & formulas", "RMS", "MES"],
   ["Lines, stations, HMIs", "EMS", "MES"], ["Schedules", "APS", "MES"], ["Users, roles & permissions", "AMS", "All modules"],
   ["Execution & genealogy", "MES", "QMS, OMS, APS"], ["Inspections, holds, CAPA", "QMS", "MES, APS, WMS, OMS"], ["Stock & locations", "WMS", "OMS, APS, MES"],

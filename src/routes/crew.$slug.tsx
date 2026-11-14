@@ -33,8 +33,8 @@ function PersonaPage() {
   const m = getModule(slug)!;
   const p = m.persona;
   const idx = modules.indexOf(m);
-  const prev = modules[(idx - 1 + modules.length) % modules.length];
-  const next = modules[(idx + 1) % modules.length];
+  const prev = modules[(idx - 1 + modules.length) % modules.length]!;
+  const next = modules[(idx + 1) % modules.length]!;
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);

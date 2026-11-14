@@ -20,7 +20,7 @@ export function HoldStory() {
     const t = setInterval(() => setI((v) => (v + 1) % steps.length), 4200);
     return () => clearInterval(t);
   }, [paused]);
-  const s = steps[i];
+  const s = steps[i]!;
   const m = getModule(s.slug)!;
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_1.3fr]" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>

@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Module and persona content lives in src/data/modules.ts; pages render from it so copy stays in one place.
+- The 3D hero (three/R3F) is lazy-loaded behind ClientOnly because WebGL can't run during SSR.
