@@ -9,5 +9,5 @@ export function heroImage(key: string): string | undefined {
 }
 
 export function HeroBackground({ name }: { name: string }) {
-  return <div className="hero-industrial-background" aria-hidden="true"><img src={heroImage(name)} alt="" width={640} height={480} /><div /></div>;
+  return <div className="hero-industrial-background" aria-hidden="true"><img src={heroImage(name)} alt="" decoding="async" /><div /></div>;
 }

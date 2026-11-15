@@ -11,7 +11,7 @@ export function PageHero({ eyebrow, title, sub, children, image, position, tone 
   const src = image ?? heroImage(key);
   return (
     <section className={`industrial-page-hero ${isCrew ? "industrial-page-hero-crew" : ""}`} data-tone={tone}>
-      <img className="industrial-cover" src={src} alt="" width={640} height={480} />
+      <img className="industrial-cover" src={src} alt="" decoding="async" />
       <div className="industrial-cover-shade" aria-hidden="true" />
       <div className="container-x industrial-page-content">
         <Reveal><div className="eyebrow flex items-center gap-3"><span className="industrial-index" aria-hidden="true">MQ /</span>{eyebrow}</div></Reveal>

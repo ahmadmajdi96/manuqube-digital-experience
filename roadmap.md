@@ -7,3 +7,7 @@
 # Dark-and-orange page openings
 - [x] Give every page a distinct dark-and-orange manufacturing background, including Agent Crew.
 - [x] Verify images and readable layouts on desktop and mobile.
+
+# Background image quality
+- [x] Enhance low-resolution backgrounds while preserving each page's distinct scene.
+- [x] Verify background sharpness and loading on desktop and mobile.
