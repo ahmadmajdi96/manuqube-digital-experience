@@ -86,7 +86,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "ManuQube — The Manufacturing Operating System" },
       { name: "description", content: "Nine connected MOM modules for planning, execution, quality and warehouse — one data model, one audit trail." },
-      { name: "author", content: "ManuQube AI" },
+      { name: "author", content: "Manuqube" },
       { property: "og:title", content: "ManuQube — The Manufacturing Operating System" },
       { property: "og:description", content: "Nine connected MOM modules for planning, execution, quality and warehouse." },
       { property: "og:type", content: "website" },

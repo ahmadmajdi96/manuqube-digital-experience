@@ -32,7 +32,7 @@ export function Footer() {
       </div>
       <div className="container-x select-none pb-6 text-[18vw] font-bold leading-none tracking-tighter text-foreground/[0.04]">ManuQube</div>
       <div className="container-x flex flex-wrap justify-between gap-4 border-t border-border py-6 font-mono text-xs text-muted-foreground">
-        <span>© {new Date().getFullYear()} ManuQube AI</span>
+        <span>© {new Date().getFullYear()} Manuqube</span>
         <span>MES · OMS · QMS · EMS · RMS · PLMS · AMS · APS · WMS</span>
       </div>
     </footer>

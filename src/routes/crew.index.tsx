@@ -10,7 +10,7 @@ import { Reveal, Stagger, StaggerItem } from "@/components/site/Reveal";
 export const Route = createFileRoute("/crew/")({
   head: () => ({
     meta: [
-      { title: "The agent crew — ManuQube AI" },
+      { title: "The agent crew — Manuqube" },
       { name: "description", content: "Meet Operator, Dispatcher, Inspector, Sentinel, Formulator, Engineer, Steward, Planner and Quartermaster — the nine ManuQube characters." },
       { property: "og:title", content: "Meet the ManuQube agent crew" },
       { property: "og:description", content: "Nine characters that illustrate how the nine modules work together." },
@@ -28,7 +28,7 @@ function CrewPage() {
   const o = useTransform(scrollYProgress, [0, 0.8], [1, 0.2]);
   return (
     <>
-      <PageHero eyebrow="Manuqube AI / Agent crew" title={<>Nine modules. <span className="text-primary">Nine characters.</span></>} sub="Use the agent crew to illustrate how the nine modules work together. Each character has a personality, a voice and a clear decision boundary." />
+      <PageHero eyebrow="Manuqube / Agent crew" title={<>Nine modules. <span className="text-primary">Nine characters.</span></>} sub="Use the agent crew to illustrate how the nine modules work together. Each character has a personality, a voice and a clear decision boundary." />
       <div ref={ref} className="relative h-[70vh] overflow-hidden">
         <motion.img src={crew} style={{ scale: s, opacity: o }} alt="The nine ManuQube characters" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />

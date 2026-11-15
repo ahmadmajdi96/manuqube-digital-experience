@@ -50,7 +50,7 @@ function Home() {
       {/* CREW LINEUP */}
       <section ref={crewRef} className="relative">
         <div className="container-x">
-          <SectionHead eyebrow="Manuqube AI / Agent crew" title="Nine modules. Nine characters. One crew." sub="Each module has a campaign character who explains evidence, options and the next owner — in the language planners and operators use on shift." />
+          <SectionHead eyebrow="Manuqube / Agent crew" title="Nine modules. Nine characters. One crew." sub="Each module has a campaign character who explains evidence, options and the next owner — in the language planners and operators use on shift." />
         </div>
         <div className="relative mt-12 h-[60vh] overflow-hidden md:h-[80vh]">
           <motion.img src={crew} alt="The ManuQube agent crew — nine robots connected to one hub" style={{ scale, y }} className="absolute inset-0 h-full w-full object-cover" />

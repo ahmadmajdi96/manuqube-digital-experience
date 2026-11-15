@@ -4,9 +4,9 @@ import { Reveal, Stagger, StaggerItem } from "@/components/site/Reveal";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About ManuQube AI — a factory is one system" },
+      { title: "About Manuqube — a factory is one system" },
       { name: "description", content: "ManuQube was built on a simple idea: a factory is one system, so its software should be too. Here is how getting started works." },
-      { property: "og:title", content: "About ManuQube AI — a factory is one system" },
+      { property: "og:title", content: "About Manuqube — a factory is one system" },
       { property: "og:description", content: "ManuQube was built on a simple idea: a factory is one system, so its software should be too. Here is how getting started works." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

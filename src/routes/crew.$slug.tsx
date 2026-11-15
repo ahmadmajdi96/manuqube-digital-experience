@@ -17,7 +17,7 @@ export const Route = createFileRoute("/crew/$slug")({
     if (!m) return { meta: [{ title: "Character not found — ManuQube" }, { name: "robots", content: "noindex" }] };
     return {
       meta: [
-        { title: `${m.persona.name} — ${m.code} character | ManuQube AI` },
+        { title: `${m.persona.name} — ${m.code} character | Manuqube` },
         { name: "description", content: `${m.persona.tagline} ${m.persona.personality}` },
         { property: "og:title", content: `${m.code} / ${m.persona.name} — ${m.persona.tagline}` },
         { property: "og:description", content: m.persona.personality },
