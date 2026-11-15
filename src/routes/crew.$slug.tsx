@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight, ShieldAlert } from "lucide-react";
 import { getModule, modules, crewPrinciple } from "@/data/modules";
 import { ClosingCta } from "@/components/site/Blocks";
 import { Reveal, Stagger, StaggerItem } from "@/components/site/Reveal";
-import processEngineering from "@/assets/process-engineering.jpg";
+import { HeroBackground } from "@/components/site/HeroBackground";
 
 export const Route = createFileRoute("/crew/$slug")({
   loader: ({ params }) => {
@@ -56,7 +56,7 @@ function PersonaPage() {
   return (
     <div style={{ ["--mod" as string]: m.color }}>
       <section ref={ref} className="industrial-persona-hero relative overflow-hidden pt-24">
-        <img src={processEngineering} alt="" className="industrial-module-background" width={1920} height={1024} />
+        <HeroBackground name={`persona-${slug}`} />
         <motion.div style={{ x: nameX }} className="industrial-persona-watermark pointer-events-none absolute top-1/3 whitespace-nowrap font-bold leading-none text-mod/10">
           {p.name} {p.name}
         </motion.div>

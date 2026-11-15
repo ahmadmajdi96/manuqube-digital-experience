@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Boxes, CalendarRange, ClipboardCheck, Database, Factory, FlaskConical, GitBranch, KeyRound, Network, PackageCheck, Settings2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { modules, type Module } from "@/data/modules";
-import factoryFloor from "@/assets/manufacturing-floor.jpg";
+import { HeroBackground } from "@/components/site/HeroBackground";
 
 const icons = { oms: PackageCheck, aps: CalendarRange, plms: GitBranch, ems: Settings2, rms: FlaskConical, mes: Factory, qms: ClipboardCheck, wms: Boxes, ams: KeyRound };
 const upstream = ["oms", "aps", "plms", "ems", "rms"];
@@ -29,7 +29,7 @@ export function PlatformHero() {
 
   return (
     <section className="platform-hero" aria-labelledby="platform-hero-title">
-      <div className="platform-industrial-scene" aria-hidden="true"><img src={factoryFloor} alt="" width={1920} height={1024} /><div /></div>
+      <HeroBackground name="home" />
       <div className="container-x">
         <motion.div className="platform-hero-intro" initial={reduceMotion ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }}>
           <div>

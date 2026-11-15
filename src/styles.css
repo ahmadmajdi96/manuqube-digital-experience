@@ -192,13 +192,15 @@
 /* Industrial editorial surfaces: actual machinery, crisp rules, and matte steel. */
 :root {
   --industrial-overlay: color-mix(in oklab, var(--graphite) 87%, transparent);
-  --industrial-overlay-soft: color-mix(in oklab, var(--graphite) 28%, transparent);
+  --industrial-overlay-soft: color-mix(in oklab, var(--graphite) 35%, transparent);
+  --industrial-orange-wash: color-mix(in oklab, var(--primary) 18%, transparent);
+  --industrial-hero-shade: linear-gradient(90deg, var(--industrial-overlay) 0%, color-mix(in oklab, var(--graphite) 64%, transparent) 40%, var(--industrial-overlay-soft) 100%), linear-gradient(0deg, var(--industrial-overlay), transparent 55%);
   --industrial-rail: color-mix(in oklab, var(--background) 94%, transparent);
   --industrial-photo-wash: color-mix(in oklab, var(--background) 78%, transparent);
 }
 .industrial-page-hero { position: relative; isolation: isolate; overflow: hidden; color: var(--ivory); padding-top: 150px; }
 .industrial-cover { position: absolute; inset: 0; z-index: -3; width: 100%; height: 100%; object-fit: cover; object-position: center; }
-.industrial-cover-shade { position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, var(--industrial-overlay) 0%, var(--industrial-overlay) 26%, var(--industrial-overlay-soft) 100%); }
+.industrial-cover-shade { position: absolute; inset: 0; z-index: -2; background: var(--industrial-hero-shade); }
 .industrial-page-content { position: relative; padding-bottom: 70px; min-height: 420px; }
 .industrial-page-content .eyebrow { color: var(--ivory); font-size: 11px; letter-spacing: 0; }
 .industrial-index { color: var(--primary); border-top: 2px solid var(--primary); padding-top: 8px; }
@@ -212,10 +214,8 @@
 .industrial-page-rail a:hover { color: var(--ivory); }
 .industrial-page-rail a>span { width: 5px; height: 5px; background: var(--mod); }
 .industrial-page-hero-crew .industrial-cover { object-position: center 35%; }
-.industrial-page-hero[data-tone="warm"] .industrial-cover-shade { background: linear-gradient(90deg, var(--industrial-overlay) 0%, var(--industrial-overlay) 30%, color-mix(in oklab, var(--primary) 16%, var(--industrial-overlay-soft)) 100%); }
-.industrial-page-hero[data-tone="cool"] .industrial-cover-shade { background: linear-gradient(90deg, var(--industrial-overlay) 0%, var(--industrial-overlay) 30%, color-mix(in oklab, #4f7d8c 22%, var(--industrial-overlay-soft)) 100%); }
-.industrial-page-hero[data-tone="deep"] .industrial-cover-shade { background: linear-gradient(180deg, var(--industrial-overlay) 0%, var(--industrial-overlay-soft) 55%, var(--background) 100%); }
-.industrial-page-hero[data-tone="deep"] .industrial-cover { opacity: .85; }
+.industrial-page-hero[data-tone] .industrial-cover-shade { background: var(--industrial-hero-shade); }
+.industrial-cover { filter: sepia(.25) saturate(1.25); }
 .industrial-module-background { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .17; pointer-events: none; }
 .industrial-module-hero { background: var(--card); border-bottom: 1px solid var(--hero-line); }
 .industrial-module-hero h1 { font-size: 60px; line-height: 1.08; }
@@ -224,7 +224,12 @@
 .industrial-persona-hero .industrial-module-background { opacity: .1; }
 .industrial-persona-watermark { font-size: 220px; }
 .industrial-persona-hero h1 { font-size: 42px; overflow-wrap: normal; }
-.platform-hero { position: relative; isolation: isolate; }
+.platform-hero { position: relative; isolation: isolate; background: var(--graphite); }
+.industrial-module-hero, .industrial-persona-hero { isolation: isolate; background: var(--graphite); }
+.hero-industrial-background { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.hero-industrial-background img { width: 100%; height: 100%; object-fit: cover; filter: sepia(.25) saturate(1.25); }
+.hero-industrial-background>div { position: absolute; inset: 0; background: var(--industrial-hero-shade); }
+.platform-hero .hero-industrial-background>div { background: linear-gradient(180deg, var(--industrial-overlay-soft), var(--industrial-overlay) 65%, var(--graphite)); }
 .platform-hero>.container-x, .platform-hero-proof { position: relative; }
 .platform-industrial-scene { position: absolute; inset: 0 0 auto; height: 430px; z-index: -1; }
 .platform-industrial-scene img { width: 100%; height: 100%; object-fit: cover; object-position: center 56%; opacity: .3; }

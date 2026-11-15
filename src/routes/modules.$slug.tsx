@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { getModule, modules } from "@/data/modules";
 import { ClosingCta } from "@/components/site/Blocks";
 import { Reveal, Stagger, StaggerItem } from "@/components/site/Reveal";
-import manufacturingFloor from "@/assets/manufacturing-floor.jpg";
+import { HeroBackground } from "@/components/site/HeroBackground";
 
 export const Route = createFileRoute("/modules/$slug")({
   loader: ({ params }) => {
@@ -38,7 +38,7 @@ function ModulePage() {
   return (
     <div style={{ ["--mod" as string]: m.color }}>
       <section className="industrial-module-hero relative overflow-hidden pt-28">
-        <img src={manufacturingFloor} alt="" className="industrial-module-background" width={1920} height={1024} />
+        <HeroBackground name={`module-${slug}`} />
         <div className="container-x relative grid items-end gap-10 lg:grid-cols-[1.3fr_1fr]">
           <div className="pb-16 pt-10">
             <Reveal><Link to="/modules" className="eyebrow inline-flex items-center gap-2 hover:text-foreground"><ArrowLeft className="h-3 w-3" />All modules</Link></Reveal>

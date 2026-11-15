@@ -2,18 +2,16 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
 import { Reveal } from "./Reveal";
-import factoryFloor from "@/assets/manufacturing-floor.jpg";
-import processEngineering from "@/assets/process-engineering.jpg";
-import crewLineup from "@/assets/crew-lineup.webp";
+import { heroImage } from "./HeroBackground";
 import { modules } from "@/data/modules";
 
 export function PageHero({ eyebrow, title, sub, children, image, position, tone = "neutral" }: { eyebrow: string; title: ReactNode; sub?: string; children?: ReactNode; image?: string; position?: string; tone?: "neutral" | "warm" | "cool" | "deep" }) {
   const isCrew = eyebrow.includes("Agent crew");
-  const isTechnical = /Technology|Security|Connected|Platform/.test(eyebrow);
-  const src = image ?? (isCrew ? crewLineup : isTechnical ? processEngineering : factoryFloor);
+  const key = isCrew ? "crew" : /Technology/.test(eyebrow) ? "technology" : /Security/.test(eyebrow) ? "security" : /Connected/.test(eyebrow) ? "connected" : /Platform/.test(eyebrow) ? "platform" : /Why/.test(eyebrow) ? "industries" : /About/.test(eyebrow) ? "about" : /FAQ/.test(eyebrow) ? "faq" : "contact";
+  const src = image ?? heroImage(key);
   return (
     <section className={`industrial-page-hero ${isCrew ? "industrial-page-hero-crew" : ""}`} data-tone={tone}>
-      <img className="industrial-cover" src={src} alt={isCrew ? "The ManuQube module crew" : "Stainless-steel batch processing equipment and connected production lines"} width={1920} height={1024} style={position ? { objectPosition: position } : undefined} />
+      <img className="industrial-cover" src={src} alt="" width={640} height={480} />
       <div className="industrial-cover-shade" aria-hidden="true" />
       <div className="container-x industrial-page-content">
         <Reveal><div className="eyebrow flex items-center gap-3"><span className="industrial-index" aria-hidden="true">MQ /</span>{eyebrow}</div></Reveal>
