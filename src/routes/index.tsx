@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Database, ShieldCheck, Server } from "lucide-react";
 import { modules } from "@/data/modules";
-import crew from "@/assets/crew-lineup.webp.asset.json";
+import crew from "@/assets/crew-lineup.webp";
 import { Reveal, Stagger, StaggerItem } from "@/components/site/Reveal";
 import { ClosingCta, GhostCta, PrimaryCta, SectionHead } from "@/components/site/Blocks";
 import { PersonaCard } from "@/components/site/PersonaCard";
@@ -53,7 +53,7 @@ function Home() {
           <SectionHead eyebrow="Manuqube AI / Agent crew" title="Nine modules. Nine characters. One crew." sub="Each module has a campaign character who explains evidence, options and the next owner — in the language planners and operators use on shift." />
         </div>
         <div className="relative mt-12 h-[60vh] overflow-hidden md:h-[80vh]">
-          <motion.img src={crew.url} alt="The ManuQube agent crew — nine robots connected to one hub" style={{ scale, y }} className="absolute inset-0 h-full w-full object-cover" />
+          <motion.img src={crew} alt="The ManuQube agent crew — nine robots connected to one hub" style={{ scale, y }} className="absolute inset-0 h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2"><PrimaryCta to="/crew">Meet the crew</PrimaryCta></div>
         </div>

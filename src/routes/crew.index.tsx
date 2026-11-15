@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { modules, crewPrinciple } from "@/data/modules";
-import crew from "@/assets/crew-lineup.webp.asset.json";
+import crew from "@/assets/crew-lineup.webp";
 import { ClosingCta, PageHero } from "@/components/site/Blocks";
 import { PersonaCard } from "@/components/site/PersonaCard";
 import { Reveal, Stagger, StaggerItem } from "@/components/site/Reveal";
@@ -30,7 +30,7 @@ function CrewPage() {
     <>
       <PageHero eyebrow="Manuqube AI / Agent crew" title={<>Nine modules. <span className="text-primary">Nine characters.</span></>} sub="Use the agent crew to illustrate how the nine modules work together. Each character has a personality, a voice and a clear decision boundary." />
       <div ref={ref} className="relative h-[70vh] overflow-hidden">
-        <motion.img src={crew.url} style={{ scale: s, opacity: o }} alt="The nine ManuQube characters" className="absolute inset-0 h-full w-full object-cover" />
+        <motion.img src={crew} style={{ scale: s, opacity: o }} alt="The nine ManuQube characters" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
       </div>
       <section className="container-x py-20">

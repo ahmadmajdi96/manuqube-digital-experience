@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, ShieldAlert } from "lucide-react";
 import { getModule, modules, crewPrinciple } from "@/data/modules";
 import { ClosingCta } from "@/components/site/Blocks";
 import { Reveal, Stagger, StaggerItem } from "@/components/site/Reveal";
+import processEngineering from "@/assets/process-engineering.jpg";
 
 export const Route = createFileRoute("/crew/$slug")({
   loader: ({ params }) => {
@@ -30,16 +31,18 @@ export const Route = createFileRoute("/crew/$slug")({
 
 function PersonaPage() {
   const { slug } = Route.useLoaderData();
-  const m = getModule(slug)!;
-  const p = m.persona;
-  const idx = modules.indexOf(m);
-  const prev = modules[(idx - 1 + modules.length) % modules.length]!;
-  const next = modules[(idx + 1) % modules.length]!;
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
   const nameX = useTransform(scrollYProgress, [0, 1], ["0%", "-25%"]);
   const [tab, setTab] = useState<"profile" | "trust">("profile");
+  const m = getModule(slug);
+  if (!m) return null;
+  const p = m.persona;
+  const idx = modules.indexOf(m);
+  const prev = modules[(idx - 1 + modules.length) % modules.length];
+  const next = modules[(idx + 1) % modules.length];
+  if (!prev || !next) return null;
 
   const profile: [string, string][] = [
     ["Who it serves", p.serves], ["What it owns", p.owns], ["What it reads", p.reads],
@@ -52,9 +55,9 @@ function PersonaPage() {
 
   return (
     <div style={{ ["--mod" as string]: m.color }}>
-      <section ref={ref} className="relative min-h-[100svh] overflow-hidden pt-24">
-        <div className="glow pointer-events-none absolute left-1/2 top-20 h-[60rem] w-[60rem] -translate-x-1/2" />
-        <motion.div style={{ x: nameX }} className="pointer-events-none absolute top-1/3 whitespace-nowrap text-[22vw] font-bold leading-none tracking-tighter text-mod/10">
+      <section ref={ref} className="industrial-persona-hero relative overflow-hidden pt-24">
+        <img src={processEngineering} alt="" className="industrial-module-background" width={1920} height={1024} />
+        <motion.div style={{ x: nameX }} className="industrial-persona-watermark pointer-events-none absolute top-1/3 whitespace-nowrap font-bold leading-none text-mod/10">
           {p.name} {p.name}
         </motion.div>
         <div className="container-x relative grid items-center gap-10 lg:grid-cols-[1fr_1.1fr_1fr]">
@@ -67,9 +70,8 @@ function PersonaPage() {
           </div>
           <motion.div style={{ y: imgY }} className="order-1 lg:order-2">
             <motion.div initial={{ opacity: 0, scale: 0.92, y: 40 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="relative mx-auto aspect-[2/3] max-w-sm overflow-hidden rounded-[2rem] border border-border shadow-glow">
+              className="industrial-portrait relative mx-auto aspect-[2/3] max-w-sm overflow-hidden">
               <img src={m.image} alt={`${p.name} — ${p.visual}`} className="h-full w-full object-cover" />
-              <div className="anim-scan pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-transparent via-mod/15 to-transparent" />
               <div className="absolute left-4 top-4 rounded bg-mod px-2 py-1 font-mono text-xs font-semibold text-graphite">{m.code}</div>
             </motion.div>
           </motion.div>

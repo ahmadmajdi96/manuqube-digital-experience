@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { getModule, modules } from "@/data/modules";
 import { ClosingCta } from "@/components/site/Blocks";
 import { Reveal, Stagger, StaggerItem } from "@/components/site/Reveal";
+import manufacturingFloor from "@/assets/manufacturing-floor.jpg";
 
 export const Route = createFileRoute("/modules/$slug")({
   loader: ({ params }) => {
@@ -29,13 +30,15 @@ export const Route = createFileRoute("/modules/$slug")({
 
 function ModulePage() {
   const { slug } = Route.useLoaderData();
-  const m = getModule(slug)!;
+  const m = getModule(slug);
+  if (!m) return null;
   const idx = modules.indexOf(m);
-  const next = modules[(idx + 1) % modules.length]!;
+  const next = modules[(idx + 1) % modules.length];
+  if (!next) return null;
   return (
     <div style={{ ["--mod" as string]: m.color }}>
-      <section className="relative overflow-hidden pt-28">
-        <div className="glow pointer-events-none absolute -right-40 top-0 h-[50rem] w-[50rem]" />
+      <section className="industrial-module-hero relative overflow-hidden pt-28">
+        <img src={manufacturingFloor} alt="" className="industrial-module-background" width={1920} height={1024} />
         <div className="container-x relative grid items-end gap-10 lg:grid-cols-[1.3fr_1fr]">
           <div className="pb-16 pt-10">
             <Reveal><Link to="/modules" className="eyebrow inline-flex items-center gap-2 hover:text-foreground"><ArrowLeft className="h-3 w-3" />All modules</Link></Reveal>
@@ -44,9 +47,9 @@ function ModulePage() {
             <Reveal delay={0.15}><p className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">{m.intro}</p></Reveal>
           </div>
           <Reveal delay={0.1} className="relative">
-            <div className="relative mx-auto aspect-[3/4] max-w-md overflow-hidden rounded-t-[2.5rem] border border-b-0 border-border shadow-glow">
+            <div className="industrial-portrait relative mx-auto aspect-[3/4] max-w-md overflow-hidden">
               <img src={m.image} alt={`${m.persona.name}, the ${m.code} character`} className="h-full w-full object-cover" />
-              <div className="absolute inset-x-4 bottom-4 rounded-xl border border-border bg-background/80 p-4 backdrop-blur">
+              <div className="absolute inset-x-4 bottom-4 border-l-2 border-mod bg-background/95 p-4">
                 <div className="font-mono text-xs text-mod">{m.code} / {m.persona.name.toUpperCase()}</div>
                 <p className="mt-1 text-sm">“{m.persona.signatureLine}”</p>
               </div>

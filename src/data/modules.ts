@@ -1,12 +1,12 @@
-import ams from "@/assets/crew/ams.webp.asset.json";
-import aps from "@/assets/crew/aps.webp.asset.json";
-import ems from "@/assets/crew/ems.webp.asset.json";
-import mes from "@/assets/crew/mes.webp.asset.json";
-import oms from "@/assets/crew/oms.webp.asset.json";
-import plms from "@/assets/crew/plms.webp.asset.json";
-import qms from "@/assets/crew/qms.webp.asset.json";
-import rms from "@/assets/crew/rms.webp.asset.json";
-import wms from "@/assets/crew/wms.webp.asset.json";
+import ams from "@/assets/crew/ams.webp";
+import aps from "@/assets/crew/aps.webp";
+import ems from "@/assets/crew/ems.webp";
+import mes from "@/assets/crew/mes.webp";
+import oms from "@/assets/crew/oms.webp";
+import plms from "@/assets/crew/plms.webp";
+import qms from "@/assets/crew/qms.webp";
+import rms from "@/assets/crew/rms.webp";
+import wms from "@/assets/crew/wms.webp";
 
 export type Persona = {
   name: string;
@@ -51,7 +51,7 @@ export type Module = {
 
 export const modules: Module[] = [
   {
-    slug: "mes", code: "MES", name: "Manufacturing Execution", color: "var(--mod-mes)", image: mes.url, group: "Execute, verify, store & ship",
+    slug: "mes", code: "MES", name: "Manufacturing Execution", color: "var(--mod-mes)", image: mes, group: "Execute, verify, store & ship",
     oneLiner: "Run every order step by step, live, with full genealogy.",
     headline: "The heartbeat of the shop floor.",
     intro: "ManuQube MES guides every work order step by step, from release to final unit — with live visibility, operator guidance and complete genealogy.",
@@ -97,7 +97,7 @@ export const modules: Module[] = [
     },
   },
   {
-    slug: "oms", code: "OMS", name: "Order Management", color: "var(--mod-oms)", image: oms.url, group: "Plan & promise",
+    slug: "oms", code: "OMS", name: "Order Management", color: "var(--mod-oms)", image: oms, group: "Plan & promise",
     oneLiner: "From sales order to shipment, with real availability and smart sourcing.",
     headline: "Promise what you can deliver. Deliver what you promised.",
     intro: "ManuQube OMS owns the customer order from capture to shipment and return — with real-time availability, rule-based sourcing and full exception handling.",
@@ -140,7 +140,7 @@ export const modules: Module[] = [
     },
   },
   {
-    slug: "qms", code: "QMS", name: "Quality Management", color: "var(--mod-qms)", image: qms.url, group: "Execute, verify, store & ship",
+    slug: "qms", code: "QMS", name: "Quality Management", color: "var(--mod-qms)", image: qms, group: "Execute, verify, store & ship",
     oneLiner: "Inspections, SPC, non-conformances and CAPA in one closed loop.",
     headline: "Quality built in, not inspected in afterwards.",
     intro: "ManuQube QMS closes the quality loop — from incoming material and in-process inspection to non-conformance, corrective action and supplier follow-up.",
@@ -184,7 +184,7 @@ export const modules: Module[] = [
     },
   },
   {
-    slug: "ems", code: "EMS", name: "Engineering Management", color: "var(--mod-ems)", image: ems.url, group: "Define & engineer",
+    slug: "ems", code: "EMS", name: "Engineering Management", color: "var(--mod-ems)", image: ems, group: "Define & engineer",
     oneLiner: "Design lines, stations, machines, HMIs and operator apps — then release safely.",
     headline: "Engineer the factory before you run it.",
     intro: "ManuQube EMS is where engineers design production lines, stations, machines and operator screens — with revisions, impact analysis and release readiness before anything touches the floor.",
@@ -227,7 +227,7 @@ export const modules: Module[] = [
     },
   },
   {
-    slug: "rms", code: "RMS", name: "Recipe Management", color: "var(--mod-rms)", image: rms.url, group: "Define & engineer",
+    slug: "rms", code: "RMS", name: "Recipe Management", color: "var(--mod-rms)", image: rms, group: "Define & engineer",
     oneLiner: "Versioned, approved recipes and formulas, from R&D trial to production run.",
     headline: "The right formula, every batch, every time.",
     intro: "ManuQube RMS controls recipes and formulas from R&D trial through approval to production execution — with full version history and compliance.",
@@ -271,7 +271,7 @@ export const modules: Module[] = [
     },
   },
   {
-    slug: "plms", code: "PLMS", name: "Product Lifecycle Management", color: "var(--mod-plms)", image: plms.url, group: "Define & engineer",
+    slug: "plms", code: "PLMS", name: "Product Lifecycle Management", color: "var(--mod-plms)", image: plms, group: "Define & engineer",
     oneLiner: "Items, BOMs, routings, documents and engineering changes under control.",
     headline: "One truth about every product, from first idea to last unit.",
     intro: "ManuQube PLMS manages items, bills of materials, routings, documents and engineering changes — and publishes released data to the factory.",
@@ -310,7 +310,7 @@ export const modules: Module[] = [
     },
   },
   {
-    slug: "ams", code: "AMS", name: "Access Management", color: "var(--mod-ams)", image: ams.url, group: "Govern access",
+    slug: "ams", code: "AMS", name: "Access Management", color: "var(--mod-ams)", image: ams, group: "Govern access",
     oneLiner: "One user, one identity — roles and permissions for every module, managed in one place.",
     headline: "One place to decide who can do what — across every module.",
     intro: "ManuQube AMS is the central access hub for the platform. Create a user once, give them roles per module, and every connected system asks AMS what that person is allowed to see and do.",
@@ -352,7 +352,7 @@ export const modules: Module[] = [
     },
   },
   {
-    slug: "aps", code: "APS", name: "Advanced Planning & Scheduling", color: "var(--mod-aps)", image: aps.url, group: "Plan & promise",
+    slug: "aps", code: "APS", name: "Advanced Planning & Scheduling", color: "var(--mod-aps)", image: aps, group: "Plan & promise",
     oneLiner: "Finite-capacity schedules that respect holds, materials and rules.",
     headline: "Schedules that survive contact with the shop floor.",
     intro: "ManuQube APS builds finite-capacity schedules that respect resources, materials, quality holds and planning rules — then releases them to MES only when approved.",
@@ -395,7 +395,7 @@ export const modules: Module[] = [
     },
   },
   {
-    slug: "wms", code: "WMS", name: "Warehouse Management", color: "var(--mod-wms)", image: wms.url, group: "Execute, verify, store & ship",
+    slug: "wms", code: "WMS", name: "Warehouse Management", color: "var(--mod-wms)", image: wms, group: "Execute, verify, store & ship",
     oneLiner: "Receive, store, pick, pack and ship with lot-level precision.",
     headline: "Every pallet, lot and bin — accounted for.",
     intro: "ManuQube WMS runs the warehouse from dock to dock, with lot-level control and native links to production and quality.",

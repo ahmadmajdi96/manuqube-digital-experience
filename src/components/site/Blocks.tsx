@@ -2,18 +2,26 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
 import { Reveal } from "./Reveal";
+import factoryFloor from "@/assets/manufacturing-floor.jpg";
+import processEngineering from "@/assets/process-engineering.jpg";
+import crewLineup from "@/assets/crew-lineup.webp";
+import { modules } from "@/data/modules";
 
 export function PageHero({ eyebrow, title, sub, children }: { eyebrow: string; title: ReactNode; sub?: string; children?: ReactNode }) {
+  const isCrew = eyebrow.includes("Agent crew");
+  const isTechnical = /Technology|Security|Connected|Platform/.test(eyebrow);
+  const image = isCrew ? crewLineup : isTechnical ? processEngineering : factoryFloor;
   return (
-    <section className="relative overflow-hidden pt-36 pb-20 md:pt-44">
-      <div className="grid-bg pointer-events-none absolute inset-0" />
-      <div className="glow pointer-events-none absolute -top-40 left-1/2 h-[40rem] w-[60rem] -translate-x-1/2 opacity-60" />
-      <div className="container-x relative">
-        <Reveal><div className="eyebrow flex items-center gap-2"><span className="anim-pulse h-1.5 w-1.5 rounded-full bg-primary" />{eyebrow}</div></Reveal>
-        <Reveal delay={0.05}><h1 className="text-balance mt-6 max-w-5xl text-5xl leading-[1.02] md:text-7xl">{title}</h1></Reveal>
-        {sub && <Reveal delay={0.1}><p className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">{sub}</p></Reveal>}
+    <section className={`industrial-page-hero ${isCrew ? "industrial-page-hero-crew" : ""}`}>
+      <img className="industrial-cover" src={image} alt={isCrew ? "The ManuQube module crew" : "Stainless-steel batch processing equipment and connected production lines"} width={1920} height={1024} />
+      <div className="industrial-cover-shade" aria-hidden="true" />
+      <div className="container-x industrial-page-content">
+        <Reveal><div className="eyebrow flex items-center gap-3"><span className="industrial-index" aria-hidden="true">MQ /</span>{eyebrow}</div></Reveal>
+        <Reveal delay={0.05}><h1 className="text-balance">{title}</h1></Reveal>
+        {sub && <Reveal delay={0.1}><p className="industrial-page-sub">{sub}</p></Reveal>}
         {children && <Reveal delay={0.15}><div className="mt-10">{children}</div></Reveal>}
       </div>
+      <div className="industrial-page-rail"><div className="container-x"><span className="font-mono">ManuQube <span className="text-primary">/</span> MOM</span><div>{modules.map((m) => <Link key={m.slug} to="/modules/$slug" params={{ slug: m.slug }} className={`module-${m.slug}`}><span />{m.code}</Link>)}</div><span className="font-mono">ISA-95 · LEVEL 3</span></div></div>
     </section>
   );
 }
