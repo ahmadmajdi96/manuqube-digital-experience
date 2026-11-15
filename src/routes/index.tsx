@@ -31,8 +31,8 @@ const loop = [
 function Home() {
   const crewRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: crewRef, offset: ["start end", "end start"] });
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.25, 1.05, 1]);
-  const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.08, 1.04, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], ["-2%", "2%"]);
 
   return (
     <>
@@ -52,7 +52,7 @@ function Home() {
         <div className="container-x">
           <SectionHead eyebrow="Manuqube / Agent crew" title="Nine modules. Nine characters. One crew." sub="Each module has a campaign character who explains evidence, options and the next owner — in the language planners and operators use on shift." />
         </div>
-        <div className="relative mt-12 h-[60vh] overflow-hidden md:h-[80vh]">
+        <div className="relative mt-12 aspect-[8/3] overflow-hidden">
           <motion.img src={crew} alt="The ManuQube agent crew — nine robots connected to one hub" style={{ scale, y }} className="absolute inset-0 h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2"><PrimaryCta to="/crew">Meet the crew</PrimaryCta></div>

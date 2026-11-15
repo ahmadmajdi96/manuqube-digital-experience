@@ -34,3 +34,4 @@ use the editor.
 - Import website images from repository binaries in src/assets, not Lovable asset URLs, so self-hosted builds include every image without a platform proxy.
 - Shared page openings use full-width manufacturing photography with a readable overlay and module rail; module and persona openings retain their original character art to distinguish product scope from character identity.
 - Resolve page-opening photographs through the eager local hero asset registry so every page has an individually bundled background and detail pages retain their original character portraits.
+- Keep crew lineup sections at the artwork's aspect ratio with restrained zoom so viewport height cannot stretch small crops across a full screen.

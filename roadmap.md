@@ -11,3 +11,4 @@
 # Background image quality
 - [x] Enhance low-resolution backgrounds while preserving each page's distinct scene.
 - [x] Verify background sharpness and loading on desktop and mobile.
+- [x] Audit all page-opening paths and correct excessive enlargement in both crew lineup sections.
