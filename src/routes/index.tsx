@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ClientOnly } from "@tanstack/react-router";
-import { lazy, Suspense, useRef } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Database, ShieldCheck, Server } from "lucide-react";
 import { modules } from "@/data/modules";
@@ -9,8 +8,7 @@ import { Reveal, Stagger, StaggerItem } from "@/components/site/Reveal";
 import { ClosingCta, GhostCta, PrimaryCta, SectionHead } from "@/components/site/Blocks";
 import { PersonaCard } from "@/components/site/PersonaCard";
 import { HoldStory } from "@/components/home/HoldStory";
-
-const Qube3D = lazy(() => import("@/components/site/Qube3D"));
+import { PlatformHero } from "@/components/home/PlatformHero";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,7 +24,6 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const proof = ["9 connected modules", "1 shared data model and event backbone", "ISA-95 Level 3 aligned", "Full traceability from raw lot to customer shipment", "Tamper-evident audit trail and electronic signatures"];
 const loop = [
   ["Plan it", "APS"], ["Define it", "PLMS · RMS · EMS"], ["Make it", "MES"], ["Check it", "QMS"], ["Store & ship it", "WMS"], ["Deliver it", "OMS"],
 ];
@@ -39,49 +36,7 @@ function Home() {
 
   return (
     <>
-      {/* HERO */}
-      <section className="relative min-h-[100svh] overflow-hidden pt-28">
-        <div className="grid-bg pointer-events-none absolute inset-0" />
-        <div className="glow pointer-events-none absolute right-0 top-10 h-[50rem] w-[50rem] opacity-70" />
-        <div className="container-x relative grid items-center gap-8 lg:grid-cols-[1.1fr_1fr]">
-          <div className="pt-10 lg:pt-20">
-            <Reveal><div className="eyebrow flex items-center gap-2"><span className="anim-pulse h-1.5 w-1.5 rounded-full bg-primary" />The Modular Manufacturing Operating System</div></Reveal>
-            <Reveal delay={0.05}>
-              <h1 className="text-balance mt-6 text-5xl leading-[0.98] sm:text-6xl xl:text-[5.5rem]">
-                One operating system for the <span className="text-gradient">entire factory.</span>
-              </h1>
-            </Reveal>
-            <Reveal delay={0.12}>
-              <p className="mt-8 max-w-xl text-lg text-muted-foreground md:text-xl">
-                ManuQube unites execution, quality, planning, engineering, recipes, orders, warehouse and product lifecycle into one modular Manufacturing Operations Management platform. Start with one module. Grow into the whole factory.
-              </p>
-            </Reveal>
-            <Reveal delay={0.18}>
-              <div className="mt-10 flex flex-wrap gap-3">
-                <PrimaryCta to="/contact">Book a demo</PrimaryCta>
-                <GhostCta to="/modules">Explore the modules</GhostCta>
-              </div>
-            </Reveal>
-          </div>
-          <div className="relative h-[26rem] sm:h-[34rem] lg:h-[44rem]">
-            <ClientOnly fallback={<div className="h-full w-full" />}>
-              <Suspense fallback={null}><Qube3D /></Suspense>
-            </ClientOnly>
-            <div className="pointer-events-none absolute bottom-10 left-0 rounded-xl border border-border bg-card/80 p-3 font-mono text-xs backdrop-blur">
-              <div className="text-muted-foreground">LT-2084 / WO-1042 / 14:32</div>
-              <div className="mt-1"><span className="text-primary">●</span> Lot on hold. Review the proposed sequence.</div>
-            </div>
-          </div>
-        </div>
-        {/* proof marquee */}
-        <div className="relative mt-10 overflow-hidden border-y border-border py-5">
-          <div className="marquee flex w-max gap-12 whitespace-nowrap">
-            {[...proof, ...proof, ...proof, ...proof].map((p, k) => (
-              <span key={k} className="flex items-center gap-12 font-mono text-sm uppercase tracking-wider text-muted-foreground">{p}<span className="h-2 w-2 rotate-45 bg-primary" /></span>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PlatformHero />
 
       {/* PROBLEM */}
       <section className="container-x grid gap-16 py-28 lg:grid-cols-2">

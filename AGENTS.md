@@ -30,4 +30,4 @@ use the editor.
 <!-- LOVABLE:END -->
 
 - Module and persona content lives in src/data/modules.ts; pages render from it so copy stays in one place.
-- The 3D hero (three/R3F) is lazy-loaded behind ClientOnly because WebGL can't run during SSR.
+- The homepage hero uses a browser-safe 2D module map sourced from the shared module data, so the platform overview renders without WebGL or deferred loading.
