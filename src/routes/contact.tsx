@@ -23,7 +23,7 @@ function P() {
   const [sel, setSel] = useState<string[]>([]);
   const [sent, setSent] = useState(false);
   return (<>
-    <PageHero eyebrow="Book a demo" title="Talk to a manufacturing expert." sub="Follow a held lot to an affected order and a proposed schedule change. See the evidence and who reviews the change." />
+    <PageHero eyebrow="Book a demo" position="center 62%" tone="deep" title="Talk to a manufacturing expert." sub="Follow a held lot to an affected order and a proposed schedule change. See the evidence and who reviews the change." />
     <section className="container-x grid gap-12 pb-24 lg:grid-cols-[1.3fr_1fr]">
       <Reveal>
         {sent ? (

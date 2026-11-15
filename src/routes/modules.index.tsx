@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { modules } from "@/data/modules";
 import { ClosingCta, PageHero } from "@/components/site/Blocks";
 import { Reveal } from "@/components/site/Reveal";
+import modulesGrid from "@/assets/modules-grid.jpg";
 
 export const Route = createFileRoute("/modules/")({
   head: () => ({
@@ -23,7 +24,7 @@ const groups = ["Plan & promise", "Define & engineer", "Execute, verify, store &
 function ModulesPage() {
   return (
     <>
-      <PageHero eyebrow="Nine modules under MOM" title="Every cube is complete on its own." sub="Each module works on its own and gets stronger as you connect more. One sign-in, one data model, one audit trail." />
+      <PageHero eyebrow="Nine modules under MOM" title="Every cube is complete on its own." sub="Each module works on its own and gets stronger as you connect more. One sign-in, one data model, one audit trail." image={modulesGrid} position="center 45%" tone="warm" />
       <div className="container-x space-y-20 pb-10">
         {groups.map((g) => (
           <section key={g}>
@@ -37,7 +38,7 @@ function ModulesPage() {
                     <div className="font-mono text-3xl font-medium text-mod">{m.code}</div>
                     <div><div className="text-xl font-semibold">{m.name}</div><div className="text-sm text-muted-foreground">Character: {m.persona.name}</div></div>
                     <p className="text-muted-foreground">{m.oneLiner}</p>
-                    <ArrowUpRight className="h-6 w-6 text-muted-foreground transition-all group-hover:rotate-45 group-hover:text-mod" />
+                    <ArrowUpRight className="h-6 w-6 text-muted-foreground transition-all duration-500 group-hover:rotate-45 group-hover:text-mod" />
                   </Link>
                 </Reveal>
               ))}

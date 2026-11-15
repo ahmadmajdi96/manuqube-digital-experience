@@ -31,7 +31,7 @@ const sec = [["Single access hub", "One identity and role model for all modules,
 const integ = [["ERP", "Orders and master data in; confirmations, goods receipts and consumption out."], ["Sales channels & e-commerce", "Orders into OMS."], ["Carriers", "Shipment and tracking links."], ["CMMS / maintenance", "Asset status, spare parts and maintenance requests."], ["Machines & PLCs", "11 industrial protocols via the edge gateway."], ["Files & spreadsheets", "CSV, JSON and Excel import/export with preview."], ["Open API", "REST endpoints, webhooks and message logs with retry."]];
 function P() {
   return (<>
-    <PageHero eyebrow="Security & compliance" title="Every action has an owner, a reason and a record." />
+    <PageHero eyebrow="Security & compliance" position="center 88%" tone="cool" title="Every action has an owner, a reason and a record." />
     <section className="container-x pb-20"><G items={sec} /></section>
     <section className="container-x grid gap-10 pb-24 lg:grid-cols-2">
       <SectionHead eyebrow="Behind the application" title="Infrastructure controls behind the application." />

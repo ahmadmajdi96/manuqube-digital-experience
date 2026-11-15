@@ -50,7 +50,7 @@ function Chip({ slug }: { slug: string }) {
 function Connected() {
   return (
     <>
-      <PageHero eyebrow="Connected by design" title="End-to-end flows across one backbone." sub="An order, a recipe, a quality hold or a stock movement means the same thing everywhere." />
+      <PageHero eyebrow="Connected by design" position="18% center" tone="warm" title="End-to-end flows across one backbone." sub="An order, a recipe, a quality hold or a stock movement means the same thing everywhere." />
       <section className="container-x pb-24">
         <SectionHead eyebrow="Flow 1" title="Order to Cash" />
         <div className="relative mt-12">

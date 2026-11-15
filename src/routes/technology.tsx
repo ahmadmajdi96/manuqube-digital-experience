@@ -42,7 +42,7 @@ const table = [
 function Tech() {
   return (
     <>
-      <PageHero eyebrow="Technology & Infrastructure" title="A serious foundation for the factory you are building." sub="Manufacturing software needs more than a clear interface. ManuQube brings established database technology, container orchestration, layered access controls and disciplined release practices together to support trustworthy records and controlled operations.">
+      <PageHero eyebrow="Technology & Infrastructure" position="center 82%" tone="neutral" title="A serious foundation for the factory you are building." sub="Manufacturing software needs more than a clear interface. ManuQube brings established database technology, container orchestration, layered access controls and disciplined release practices together to support trustworthy records and controlled operations.">
         <div className="flex flex-wrap gap-3"><PrimaryCta to="/contact">Book a platform walkthrough</PrimaryCta><GhostCta to="/contact">Discuss your IT requirements</GhostCta></div>
       </PageHero>
       <section className="container-x grid gap-10 pb-20 lg:grid-cols-2">

@@ -41,7 +41,7 @@ const layers = [
 function Platform() {
   return (
     <>
-      <PageHero eyebrow="Platform" title="What is a Manufacturing Operating System?" sub="The international standard ISA-95 (IEC 62264) splits a manufacturing business into levels. Level 3 — Manufacturing Operations Management (MOM) — is everything between ERP and machines." />
+      <PageHero eyebrow="Platform" position="center 22%" tone="cool" title="What is a Manufacturing Operating System?" sub="The international standard ISA-95 (IEC 62264) splits a manufacturing business into levels. Level 3 — Manufacturing Operations Management (MOM) — is everything between ERP and machines." />
       <section className="container-x grid gap-12 pb-24 lg:grid-cols-[1fr_1.3fr]">
         <Reveal className="space-y-6 text-lg text-muted-foreground">
           <p>Level 4 is business planning (ERP). Levels 0–2 are machines, sensors and control systems. <span className="text-foreground">Level 3 — MOM</span> is production, quality, inventory movement, maintenance, recipes, detailed scheduling and product tracking.</p>

@@ -7,13 +7,13 @@ import processEngineering from "@/assets/process-engineering.jpg";
 import crewLineup from "@/assets/crew-lineup.webp";
 import { modules } from "@/data/modules";
 
-export function PageHero({ eyebrow, title, sub, children }: { eyebrow: string; title: ReactNode; sub?: string; children?: ReactNode }) {
+export function PageHero({ eyebrow, title, sub, children, image, position, tone = "neutral" }: { eyebrow: string; title: ReactNode; sub?: string; children?: ReactNode; image?: string; position?: string; tone?: "neutral" | "warm" | "cool" | "deep" }) {
   const isCrew = eyebrow.includes("Agent crew");
   const isTechnical = /Technology|Security|Connected|Platform/.test(eyebrow);
-  const image = isCrew ? crewLineup : isTechnical ? processEngineering : factoryFloor;
+  const src = image ?? (isCrew ? crewLineup : isTechnical ? processEngineering : factoryFloor);
   return (
-    <section className={`industrial-page-hero ${isCrew ? "industrial-page-hero-crew" : ""}`}>
-      <img className="industrial-cover" src={image} alt={isCrew ? "The ManuQube module crew" : "Stainless-steel batch processing equipment and connected production lines"} width={1920} height={1024} />
+    <section className={`industrial-page-hero ${isCrew ? "industrial-page-hero-crew" : ""}`} data-tone={tone}>
+      <img className="industrial-cover" src={src} alt={isCrew ? "The ManuQube module crew" : "Stainless-steel batch processing equipment and connected production lines"} width={1920} height={1024} style={position ? { objectPosition: position } : undefined} />
       <div className="industrial-cover-shade" aria-hidden="true" />
       <div className="container-x industrial-page-content">
         <Reveal><div className="eyebrow flex items-center gap-3"><span className="industrial-index" aria-hidden="true">MQ /</span>{eyebrow}</div></Reveal>

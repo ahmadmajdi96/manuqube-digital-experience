@@ -33,7 +33,7 @@ const roles = [["Plant manager", "Live control center, OEE, KPIs and plant analy
 const results = ["Higher on-time delivery through realistic, constraint-aware schedules", "Lower scrap and rework through enforced steps and in-line quality", "Faster recalls with complete lot genealogy", "Less paperwork and manual data entry across shifts", "Faster audits with signed, exportable records"];
 function P() {
   return (<>
-    <PageHero eyebrow="Why ManuQube" title="Built for the way batch manufacturing really works." sub="Keep production on plan when the factory changes." />
+    <PageHero eyebrow="Why ManuQube" position="82% center" tone="warm" title="Built for the way batch manufacturing really works." sub="Keep production on plan when the factory changes." />
     <section className="container-x pb-24"><SectionHead eyebrow="Why ManuQube" title="Six reasons factories switch." /><G items={why} /></section>
     <section className="border-y border-border bg-card/40 py-24"><div className="container-x"><SectionHead eyebrow="Industries" title="One platform, five manufacturing worlds." /><G items={ind} cols="lg:grid-cols-5" /></div></section>
     <section className="container-x py-24"><SectionHead eyebrow="Who uses ManuQube" title="Every role, the same truth, at the same moment." />

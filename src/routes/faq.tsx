@@ -33,7 +33,7 @@ const faq = [
 ];
 function P() {
   return (<>
-    <PageHero eyebrow="FAQ" title="Questions, answered precisely." />
+    <PageHero eyebrow="FAQ" position="78% 30%" tone="neutral" title="Questions, answered precisely." />
     <section className="container-x max-w-4xl pb-12">
       <Reveal><Accordion type="single" collapsible className="divide-y divide-border border-y border-border">
         {faq.map(([q, a], k) => (
